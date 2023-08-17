@@ -68,13 +68,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        player.alpha = hearts > 0 ? 1 : 0.24
+        let blockOpacity = hearts > 0 ? 1 : 0.24
+        player.alpha = blockOpacity
         
-        let fallenBlocks = self.children.filter { node in
-            FallingBlock.allCases.map(\.nodeName).contains(node.name ?? "") &&
-            node.position.y <= 0
-        }
-        fallenBlocks.forEach { $0.removeFromParent() }
+        self.children
+            .filter { FallingBlock.allCases.map(\.nodeName).contains($0.name ?? "") }
+            .forEach { node in
+                node.alpha = blockOpacity
+                
+                if node.position.y <= 0 {
+                    node.removeFromParent()
+                }
+            }
     }
     
     // MARK: - SKPhysicsContactDelegate
