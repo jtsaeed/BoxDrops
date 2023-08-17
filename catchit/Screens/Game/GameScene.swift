@@ -52,7 +52,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 .repeatForever(
                     .sequence(
                         [
-                            .wait(forDuration: fallingBlock.frequency),
+                            .wait(forDuration: fallingBlock.spawnFrequency),
                             .run { self.generate(fallingBlock: fallingBlock) }
                         ]
                     )
@@ -106,7 +106,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private func createPlayer() {
         player.name = "PlayerBlock"
-        player.fillColor = UIColor(named: "PlayerBlock")!
+        player.fillColor = .accent
         player.strokeColor = .clear
         player.position = CGPoint(x: self.size.width / 2, y: 96)
         player.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 64, height: 64))

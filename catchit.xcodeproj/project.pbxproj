@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AB8985F62A8ED5C8004D3BFD /* HydrogenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8985F52A8ED5C8004D3BFD /* HydrogenButton.swift */; };
+		AB8985F82A8EDC04004D3BFD /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8985F72A8EDC04004D3BFD /* UIColor+Ext.swift */; };
 		ABD614EB2A8C5788001E7CA5 /* CatchitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD614EA2A8C5788001E7CA5 /* CatchitApp.swift */; };
 		ABD614ED2A8C5788001E7CA5 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD614EC2A8C5788001E7CA5 /* GameView.swift */; };
 		ABD614EF2A8C5789001E7CA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABD614EE2A8C5789001E7CA5 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		AB8985F52A8ED5C8004D3BFD /* HydrogenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrogenButton.swift; sourceTree = "<group>"; };
+		AB8985F72A8EDC04004D3BFD /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		ABD614E72A8C5788001E7CA5 /* catchit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = catchit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD614EA2A8C5788001E7CA5 /* CatchitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchitApp.swift; sourceTree = "<group>"; };
 		ABD614EC2A8C5788001E7CA5 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				AB8985F52A8ED5C8004D3BFD /* HydrogenButton.swift */,
+				AB8985F72A8EDC04004D3BFD /* UIColor+Ext.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB8985F82A8EDC04004D3BFD /* UIColor+Ext.swift in Sources */,
 				ABD614F92A8C57B4001E7CA5 /* MainMenuView.swift in Sources */,
 				ABD614ED2A8C5788001E7CA5 /* GameView.swift in Sources */,
 				ABD614FB2A8C5883001E7CA5 /* GameScene.swift in Sources */,
