@@ -52,7 +52,7 @@ struct HeadsUpDisplayView: View {
         HStack(spacing: 8) {
             HeadsUpDisplayPillView {
                 HStack(spacing: 4) {
-                    Text("Score")
+                    Text("score")
                         .fontWeight(.light)
                     Text(score.description)
                         .fontWeight(.semibold)
@@ -75,9 +75,7 @@ struct HeadsUpDisplayView: View {
         .font(.title2)
         .padding(.vertical, 16)
         .frame(maxWidth: .infinity)
-        .background {
-            Color(.init(white: 0.98, alpha: 1.0))
-        }
+        .background(Color(.init(white: 0.98, alpha: 1.0)))
     }
 }
 
@@ -96,9 +94,7 @@ struct HeadsUpDisplayPillView<Content: View>: View {
             .foregroundColor(Color(.init(white: 0.32, alpha: 1.0)))
             .padding(.vertical, 12)
             .padding(.horizontal, 20)
-            .background {
-                RoundedRectangle(cornerRadius: 16)
-                    .foregroundColor(Color(.init(white: 0.95, alpha: 1.0)))
-            }
+            .background(Color(.init(white: 0.95, alpha: 1.0)))
+            .cornerRadius(16)
     }
 }
