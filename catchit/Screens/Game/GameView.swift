@@ -3,9 +3,9 @@ import SpriteKit
 
 struct GameView: View {
     
-    @State var startTime: Date = Date()
-    @State var score: Int = 0
-    @State var hearts: Int = 4
+    @State var score = 0
+    @State var hearts = 4
+    @State var fallingBlockSpeed = 500
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -22,7 +22,7 @@ struct GameView: View {
                             ),
                             score: $score,
                             hearts: $hearts,
-                            startTime: startTime
+                            fallingBlockSpeed: $fallingBlockSpeed
                         )
                     )
                 }
@@ -37,9 +37,9 @@ struct GameView: View {
     }
     
     private func retryButtonAction() {
-        startTime = Date()
         score = 0
         hearts = 4
+        fallingBlockSpeed = 500
     }
 }
 

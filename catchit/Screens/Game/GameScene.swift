@@ -7,13 +7,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     @Binding private var score: Int
     @Binding private var hearts: Int
-    private let startTime: Date
+    @Binding private var fallingBlockSpeed: Int
     
     private let player = SKShapeNode(
         rect: CGRect(x: -32, y: -32, width: 64, height: 64),
         cornerRadius: 8
     )
-    private var fallingBlockSpeed = 500
     
     // MARK: - Initialization
     
@@ -21,11 +20,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         size: CGSize,
         score: Binding<Int>,
         hearts: Binding<Int>,
-        startTime: Date
+        fallingBlockSpeed: Binding<Int>
     ) {
         self._score = score
         self._hearts = hearts
-        self.startTime = startTime
+        self._fallingBlockSpeed = fallingBlockSpeed
         
         super.init(size: size)
         
@@ -35,7 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     required init?(coder aDecoder: NSCoder) {
         self._score = .constant(0)
         self._hearts = .constant(4)
-        self.startTime = Date()
+        self._fallingBlockSpeed = .constant(500)
         super.init(coder: aDecoder)
     }
     
@@ -70,9 +69,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         player.alpha = hearts > 0 ? 1 : 0.24
-        
-        let secondsElapsed = Int(abs(startTime.timeIntervalSinceNow))
-        fallingBlockSpeed = 500 + (secondsElapsed * 10)
         
         let fallenBlocks = self.children.filter { node in
             FallingBlock.allCases.map(\.nodeName).contains(node.name ?? "") &&
@@ -145,6 +141,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         node.physicsBody?.velocity = CGVector(dx: 0, dy: -fallingBlockSpeed)
         
         addChild(node)
+        
+        fallingBlockSpeed += 2
     }
     
     private func playerCollided(with node: SKNode) {
