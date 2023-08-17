@@ -28,7 +28,7 @@ struct GameView: View {
                 }
                 
                 if hearts <= 0 {
-                    Button("Retry", action: retryButtonAction)
+                    HydrogenButton(title: "retry", color: .accentColor, action: retryButtonAction)
                 }
             }
             
