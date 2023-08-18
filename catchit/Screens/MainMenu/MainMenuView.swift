@@ -2,11 +2,13 @@ import SwiftUI
 
 struct MainMenuView: View {
     
+    @Environment(\.colorScheme) private var colorScheme: ColorScheme
+    
     @Binding var isPlaying: Bool
     
     var body: some View {
         ZStack {
-            Color(.init(white: 0.98, alpha: 1.0))
+            Color(.margin)
                 .ignoresSafeArea(.container)
             
             VStack(spacing: 32) {
@@ -26,9 +28,8 @@ struct MainMenuView: View {
                         .frame(width: 24, height: 24)
                     
                     Text(block.description)
-                        .foregroundColor(.black)
                         .font(.title.weight(.light))
-                        .opacity(0.5)
+                        .opacity(colorScheme == .dark ? 0.8 : 0.5)
                 }
             }
         }
@@ -43,11 +44,10 @@ struct MainMenuView: View {
     
     private var footerView: some View {
         VStack(spacing: 8) {
-            Text("BoxDrops • beta 2")
+            Text("BoxDrops • beta 3")
         }
-        .foregroundColor(.black)
         .font(.title2.weight(.light))
-        .opacity(0.2)
+        .opacity(colorScheme == .dark ? 0.4 : 0.2)
     }
 }
 

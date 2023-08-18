@@ -9,7 +9,7 @@ struct GameView: View {
     
     var body: some View {
         ZStack(alignment: .top) {
-            Color(.init(white: 0.98, alpha: 1.0))
+            Color(.margin)
                 .ignoresSafeArea(.container)
             
             ZStack {
@@ -28,7 +28,11 @@ struct GameView: View {
                 }
                 
                 if hearts <= 0 {
-                    HydrogenButton(title: "retry", color: .accentColor, action: retryButtonAction)
+                    HydrogenButton(
+                        title: "retry",
+                        color: .accentColor,
+                        action: retryButtonAction
+                    )
                 }
             }
             
@@ -69,13 +73,14 @@ struct HeadsUpDisplayView: View {
                             Image(systemName: "heart.slash")
                         }
                     }
+                    .foregroundColor(Color(.pillText))
                 }
             }
         }
         .font(.title2)
         .padding(.vertical, 16)
         .frame(maxWidth: .infinity)
-        .background(Color(.init(white: 0.98, alpha: 1.0)))
+        .background(Color(.margin))
     }
 }
 
@@ -91,10 +96,10 @@ struct HeadsUpDisplayPillView<Content: View>: View {
     
     var body: some View {
         content()
-            .foregroundColor(Color(.init(white: 0.32, alpha: 1.0)))
+            .foregroundColor(Color(.pillText))
             .padding(.vertical, 12)
             .padding(.horizontal, 20)
-            .background(Color(.init(white: 0.95, alpha: 1.0)))
+            .background(Color(.pillBackground))
             .cornerRadius(16)
     }
 }

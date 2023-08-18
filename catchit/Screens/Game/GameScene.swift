@@ -9,6 +9,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     @Binding private var hearts: Int
     @Binding private var fallingBlockSpeed: Int
     
+    private let platform: SKShapeNode
     private let player = SKShapeNode(
         rect: CGRect(x: -32, y: -32, width: 64, height: 64),
         cornerRadius: 8
@@ -26,15 +27,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self._hearts = hearts
         self._fallingBlockSpeed = fallingBlockSpeed
         
+        self.platform = SKShapeNode(rect: CGRect(x: 0, y: 0, width: size.width, height: 64))
+        
         super.init(size: size)
         
-        self.backgroundColor = .white
+        self.backgroundColor = .background
     }
     
     required init?(coder aDecoder: NSCoder) {
         self._score = .constant(0)
         self._hearts = .constant(4)
         self._fallingBlockSpeed = .constant(500)
+        self.platform = SKShapeNode(rect: CGRect(x: 0, y: 0, width: 0, height: 0))
         super.init(coder: aDecoder)
     }
     
@@ -68,6 +72,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        applyTheming()
+        
         let blockOpacity = hearts > 0 ? 1 : 0.24
         player.alpha = blockOpacity
         
@@ -98,8 +104,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // MARK: - Private Functionality
     
     private func createPlatform() {
-        let platform = SKShapeNode(rect: CGRect(x: 0, y: 0, width: self.size.width, height: 64))
-        platform.fillColor = .init(white: 0.98, alpha: 1.0)
+        platform.fillColor = .margin
+        platform.strokeColor = .clear
         platform.zPosition = 2
         
         addChild(platform)
@@ -148,6 +154,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(node)
         
         fallingBlockSpeed += 2
+    }
+    
+    private func applyTheming() {
+        self.backgroundColor = .background
+        self.platform.fillColor = .margin
     }
     
     private func playerCollided(with node: SKNode) {
