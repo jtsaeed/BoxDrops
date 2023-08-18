@@ -39,7 +39,7 @@ struct MainMenuView: View {
     
     private var footerView: some View {
         VStack(spacing: 8) {
-            Text("BoxDrops • beta 3")
+            Text("BoxDrops • beta 4")
         }
         .font(.title2.weight(.light))
         .opacity(colorScheme == .dark ? 0.4 : 0.2)
