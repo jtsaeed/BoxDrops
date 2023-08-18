@@ -13,10 +13,7 @@ struct GameView: View {
     
     var body: some View {
         ZStack(alignment: .top) {
-            Color(.margin)
-                .ignoresSafeArea(.container)
-            
-            ZStack {
+            ZStack(alignment: .center) {
                 gameSceneView
                 retryButton
             }

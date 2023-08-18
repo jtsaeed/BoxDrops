@@ -7,15 +7,10 @@ struct MainMenuView: View {
     @Binding var isPlaying: Bool
     
     var body: some View {
-        ZStack {
-            Color(.margin)
-                .ignoresSafeArea(.container)
-            
-            VStack(spacing: 32) {
-                tutorialView
-                playButton
-                footerView
-            }
+        VStack(spacing: 32) {
+            tutorialView
+            playButton
+            footerView
         }
     }
     
