@@ -32,7 +32,6 @@ struct MainMenuView: View {
     
     private var playButton: some View {
         HydrogenButton(title: "play", color: Color(.accent)) {
-            UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
             isPlaying = true
         }
     }

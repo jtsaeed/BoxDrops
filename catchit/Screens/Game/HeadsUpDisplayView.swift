@@ -14,7 +14,7 @@ struct HeadsUpDisplayView: View {
             HeadsUpDisplayPillView(large: !isGameInProgress) {
                 HStack(spacing: isGameInProgress ? 4 : 8) {
                     Text("score")
-                        .fontWeight(isGameInProgress ? .light : .thin)
+                        .fontWeight(.light)
                     Text(score.description)
                         .fontWeight(.semibold)
                 }
