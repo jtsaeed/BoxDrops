@@ -4,6 +4,8 @@ struct MainMenuView: View {
     
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
     
+    @AppStorage("highScore") private var highScore: Int = 0
+    
     @Binding var isPlaying: Bool
     
     var body: some View {
@@ -38,7 +40,7 @@ struct MainMenuView: View {
     
     private var footerView: some View {
         VStack(spacing: 8) {
-            Text("BoxDrops • beta 4")
+            Text("high score • ") + Text(highScore.description).fontWeight(.regular)
         }
         .font(.title2.weight(.light))
         .opacity(colorScheme == .dark ? 0.4 : 0.2)

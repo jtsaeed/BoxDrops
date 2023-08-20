@@ -7,6 +7,8 @@ struct GameView: View {
     @State var hearts = 4
     @State var fallingBlockSpeed = 500
     
+    @AppStorage("highScore") private var highScore: Int = 0
+    
     var isGameInProgress: Bool {
         hearts > 0
     }
@@ -21,6 +23,11 @@ struct GameView: View {
             HeadsUpDisplayView(score: score, hearts: hearts)
         }
         .animation(.spring(), value: hearts)
+        .onChange(of: score) { newScore in
+            if newScore > highScore {
+                highScore = newScore
+            }
+        }
     }
     
     private var gameSceneView: some View {
