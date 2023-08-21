@@ -34,7 +34,9 @@ struct GameView: View {
             if newScore > highScore {
                 highScore = newScore
             }
-            if newScore > 50 {
+        }
+        .onChange(of: hearts) { newHearts in
+            if newHearts == 0 && highScore > 50 {
                 SKStoreReviewController.requestReview()
             }
         }
