@@ -9,7 +9,6 @@ struct HydrogenButton: View {
     var body: some View {
         Button(title, action: action)
             .buttonStyle(HydrogenButtonStyle(color: color))
-            .frame(maxWidth: .infinity)
     }
 }
 
@@ -22,7 +21,7 @@ struct HydrogenButtonStyle: ButtonStyle {
             .opacity(0.98)
             .font(.largeTitle.weight(.light))
             .foregroundColor(.white)
-            .padding(.horizontal, 96)
+            .padding(.horizontal, 64)
             .padding(.vertical, 16)
             .background(color)
             .cornerRadius(16)

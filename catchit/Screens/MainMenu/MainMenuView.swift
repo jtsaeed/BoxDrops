@@ -33,7 +33,7 @@ struct MainMenuView: View {
     }
     
     private var playButton: some View {
-        HydrogenButton(title: "play", color: Color(.accent)) {
+        HydrogenButton(title: "start playing", color: Color(.accent)) {
             isPlaying = true
         }
     }

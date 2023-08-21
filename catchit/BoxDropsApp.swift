@@ -16,7 +16,7 @@ struct BoxDropsApp: App {
                     .disabled(isPlaying)
                 
                 if isPlaying {
-                    GameView()
+                    GameView(isPlaying: $isPlaying)
                 }
             }
             .animation(.spring(), value: isPlaying)

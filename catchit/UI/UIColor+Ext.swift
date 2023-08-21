@@ -3,6 +3,7 @@ import UIKit
 extension UIColor {
     
     static let accent = UIColor(named: "AccentColor")!
+    static let secondary = UIColor(named: "SecondaryColor")!
     
     static let background = UIColor(named: "Background")!
     static let margin = UIColor(named: "Margin")!

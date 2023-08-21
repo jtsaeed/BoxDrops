@@ -3,11 +3,13 @@ import SpriteKit
 
 struct GameView: View {
     
-    @State var score = 0
-    @State var hearts = 4
-    @State var fallingBlockSpeed = 500
+    @State private var score = 0
+    @State private var hearts = 4
+    @State private var fallingBlockSpeed = 500
     
     @AppStorage("highScore") private var highScore: Int = 0
+    
+    @Binding var isPlaying: Bool
     
     var isGameInProgress: Bool {
         hearts > 0
@@ -17,7 +19,11 @@ struct GameView: View {
         ZStack(alignment: .top) {
             ZStack(alignment: .center) {
                 gameSceneView
-                retryButton
+                
+                VStack(spacing: 20) {
+                    mainMenuButton
+                    retryButton
+                }
             }
             
             HeadsUpDisplayView(score: score, hearts: hearts)
@@ -46,8 +52,17 @@ struct GameView: View {
         }
     }
     
+    private var mainMenuButton: some View {
+        HydrogenButton(title: "menu", color: Color(.secondary)) {
+            isPlaying = false
+        }
+        .opacity(isGameInProgress ? 0 : 1)
+        .scaleEffect(isGameInProgress ? 0.8 : 1)
+        .disabled(isGameInProgress)
+    }
+    
     private var retryButton: some View {
-        HydrogenButton(title: "retry", color: .accentColor) {
+        HydrogenButton(title: "play again", color: .accentColor) {
             score = 0
             hearts = 4
             fallingBlockSpeed = 500
