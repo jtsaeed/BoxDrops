@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct BoxDropsApp: App {
+struct BoxChaseApp: App {
     
     @State private var isPlaying: Bool = false
     
