@@ -1,13 +1,14 @@
 import SwiftUI
 import SpriteKit
+import StoreKit
 
 struct GameView: View {
+    
+    @AppStorage("highScore") private var highScore: Int = 0
     
     @State private var score = 0
     @State private var hearts = 4
     @State private var fallingBlockSpeed = 500
-    
-    @AppStorage("highScore") private var highScore: Int = 0
     
     @Binding var isPlaying: Bool
     
@@ -32,6 +33,9 @@ struct GameView: View {
         .onChange(of: score) { newScore in
             if newScore > highScore {
                 highScore = newScore
+            }
+            if newScore > 50 {
+                SKStoreReviewController.requestReview()
             }
         }
     }
